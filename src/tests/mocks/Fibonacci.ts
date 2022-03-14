@@ -1,7 +1,7 @@
 import { setupServer } from 'msw/node';
 import { rest } from 'msw';
 
-//Server setting up:
+//Server set up:
 //*********************************************************/
 const server = setupServer(
   rest.get('http://localhost:8081/api/fibonacci/*', (_: any, res:any, ctx: any) => {

@@ -2,7 +2,7 @@ import {
   memo, useContext
 } from "react";
 
-import Context from '../context';
+import Context from '../../context';
 
 type Props = {
   setValue: (value: number) => void

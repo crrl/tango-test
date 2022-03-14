@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import Context from '../../components/context';
+import Context from '../../context';
 
 export const customRender = (ui: any, { providerProps, ...renderOptions }: any) => {
   let provider = providerProps ? providerProps : defaultProps;

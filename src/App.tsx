@@ -1,7 +1,7 @@
 import { memo, useCallback, useState } from 'react';
 import './App.css';
 import { Button, Textbox, Title, Result } from './components';
-import Context from './components/context';
+import Context from './context';
 import axios from './axios.config';
 
 function App() {

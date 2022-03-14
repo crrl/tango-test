@@ -2,7 +2,7 @@ import {
   memo, useContext
 } from "react";
 import './index.css';
-import Context from '../context';
+import Context from '../../context';
 const Result = () => {
   const ValuesContext = useContext(Context);
   return (
