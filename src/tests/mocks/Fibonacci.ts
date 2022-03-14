@@ -4,7 +4,7 @@ import { rest } from 'msw';
 //Server setting up:
 //*********************************************************/
 const server = setupServer(
-  rest.get('http://localhost:8081/api/fibonacci/*', (_: any, res: any, ctx: any) => {
+  rest.get('http://localhost:8081/api/fibonacci/*', (_: any, res:any, ctx: any) => {
     return res(ctx.json({ value: 1 }));
   }),
 )

@@ -1,26 +1,28 @@
 import {
-  memo
+  memo, useContext
 } from "react";
+
+import Context from '../context';
+
 type Props = {
-  value: number,
   setValue: (value: number) => void
 };
-// { number }: Props
-const Textbox = ({ value, setValue }: Props) => {
-
+const Textbox = ({ setValue }: Props) => {
+  const ValueContext = useContext(Context);
   const handleValueChange = (newValue: number): void => {
     try {
-      if (newValue < 0 || newValue > 50) {
-        throw ('Value not allowed');
+      let cleanValue: number = Math.floor(newValue);
+      if (cleanValue < 0 || cleanValue > 50) {
+        throw (new Error('Value not allowed'));
       }
-      setValue(newValue);
+      setValue(cleanValue);
     } catch (error) {
       alert(error);
     }
   };
 
   return (
-    <input role='value' type='number' value={value} onChange={(ev) => handleValueChange(+ev.target.value)} />
+    <input role='value' type='number' value={ValueContext.value} onChange={(ev) => handleValueChange(+ev.target.value)} />
   )
 };
 

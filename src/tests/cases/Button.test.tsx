@@ -1,11 +1,12 @@
 // import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
-import Button from './index';
+import { Button } from '../../components';
+
 const handleClick = jest.fn();
 let buttonElement: any = null;
 beforeEach(() => {
   render(<Button text={'Calculate'} onClick={handleClick} />);
-  buttonElement = screen.getByRole('calculate');
+  buttonElement = screen.getByRole('button');
 });
 
 test('renders button that says "Calculate"', () => {

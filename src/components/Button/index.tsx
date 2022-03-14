@@ -6,9 +6,8 @@ type Props = {
   onClick: () => void
 };
 const Button = ({ text, onClick }: Props) => {
-
   return (
-    <button role='calculate' onClick={onClick}>{text}</button>
+    <button onClick={onClick}>{text}</button>
   )
 };
 

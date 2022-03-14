@@ -1,14 +1,13 @@
 import {
-  memo
+  memo, useContext
 } from "react";
-type Props = {
-  result: number,
-};
-const Result = ({ result }: Props) => {
-
+import './index.css';
+import Context from '../context';
+const Result = () => {
+  const ValuesContext = useContext(Context);
   return (
     <div>
-      <span>Fibonacci Result: </span><span role="result">{result}</span>
+      <span>Fibonacci Result: </span><span role="result-span" className='result'>{ValuesContext.result}</span>
     </div>
   )
 };

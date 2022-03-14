@@ -1,6 +1,6 @@
 // import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Title from './index';
+import Title from '../../components/Title/index';
 
 test('verify that the title is setting up ok.', () => {
   render(<Title text='Caulculate Fibonacci' />);

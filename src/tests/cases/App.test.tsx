@@ -1,16 +1,17 @@
 /* tslint:disable */
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { screen, fireEvent, waitFor } from '@testing-library/react';
+import { customRender, defaultProps } from '../constants';
 
 
 import '@testing-library/jest-dom';
-import App from './App';
+import App from '../../App';
 import { act } from 'react-dom/test-utils';
-import server from './tests/mocks/Fibonacci';
+import server from '../mocks/Fibonacci';
 
 
 
 beforeEach(() => {
-  render(<App />);
+  customRender(<App />, { defaultProps });
 });
 
 
@@ -41,12 +42,12 @@ describe('test for the text input on the screen', () => {
 
 describe('test for the calculate button on the screen', () => {
   test('should render the button', () => {
-    const linkElement = screen.getByRole('calculate');
+    const linkElement = screen.getByRole('button');
     expect(linkElement).toBeInTheDocument();
   });
 
   test('should render the button with "Calculate" text', () => {
-    const linkElement = screen.getByRole('calculate');
+    const linkElement = screen.getByRole('button');
     expect(linkElement.textContent).toBe('Calculate')
   });
 });
@@ -54,15 +55,15 @@ describe('test for the calculate button on the screen', () => {
 
 describe('test for the results on the screen', () => {
   test('should render the result', () => {
-    const linkElement = screen.getByRole('result');
+    const linkElement = screen.getByRole('button');
     expect(linkElement).toBeInTheDocument();
   });
 
   test('executes the function passed to the Button.', async () => {
-    const linkElement = screen.getByRole('calculate');
+    const linkElement = screen.getByRole('button');
     await act(async () => { await fireEvent.click(linkElement) });
     await waitFor(() => {
-      expect(screen.getByRole('result').textContent).toBe('1');
+      expect(screen.getByRole('result-span').textContent).toBe('1');
     });
   });
 });
