@@ -12,6 +12,7 @@ const Textbox = ({ setValue }: Props) => {
   const handleValueChange = (newValue: number): void => {
     try {
       let cleanValue: number = Math.floor(newValue);
+      //This validation was made here to use some more code on the Frontend.
       if (cleanValue < 0 || cleanValue > 50) {
         throw (new Error('Value not allowed'));
       }
