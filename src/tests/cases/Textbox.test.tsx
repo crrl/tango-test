@@ -24,13 +24,13 @@ describe('successful tests for Textbox component.', () => {
 
     currentValue = 4;
     customRender(<Textbox setValue={() => { }} />, { providerProps });
-    const ResultElement = screen.getByRole('value') as HTMLInputElement;
+    const ResultElement = screen.getByRole('input') as HTMLInputElement;
     expect(ResultElement.value).toBe(String(currentValue));
   });
 
   test('verify that function is changing value.', () => {
     customRender(<Textbox setValue={handleValueChange} />, { defaultProps });
-    const ResultElement = screen.getByRole('value');
+    const ResultElement = screen.getByRole('input');
     expect(currentValue).toBe(0);
     fireEvent.change(ResultElement, { target: { value: 3 } })
     expect(currentValue).toBe(3);
@@ -41,7 +41,7 @@ describe('failure tests for Textbox component.', () => {
   test('verify that the value is over the highest limit and throws an error.', () => {
     const alertMock = jest.spyOn(window, 'alert').mockImplementation();
     customRender(<Textbox setValue={handleValueChange} />, { defaultProps });
-    const ResultElement = screen.getByRole('value');
+    const ResultElement = screen.getByRole('input');
     expect(currentValue).toBe(0);
     fireEvent.change(ResultElement, { target: { value: 51 } });
     expect(alertMock).toHaveBeenCalledTimes(1);
@@ -50,7 +50,7 @@ describe('failure tests for Textbox component.', () => {
   test('verify that the value is under the lowest limit and throws an error.', () => {
     const alertMock = jest.spyOn(window, 'alert').mockImplementation();
     customRender(<Textbox setValue={handleValueChange} />, { defaultProps });
-    const ResultElement = screen.getByRole('value');
+    const ResultElement = screen.getByRole('input');
     expect(currentValue).toBe(0);
     fireEvent.change(ResultElement, { target: { value: -1 } });
     expect(alertMock).toHaveBeenCalledTimes(1);
@@ -59,7 +59,7 @@ describe('failure tests for Textbox component.', () => {
   test('verify that the value is in the limit and doesn\'t throws an error.', () => {
     const alertMock = jest.spyOn(window, 'alert').mockImplementation();
     customRender(<Textbox setValue={handleValueChange} />, { defaultProps });
-    const ResultElement = screen.getByRole('value');
+    const ResultElement = screen.getByRole('input');
     expect(currentValue).toBe(0);
     fireEvent.change(ResultElement, { target: { value: 0 } });
     expect(alertMock).toHaveBeenCalledTimes(0);

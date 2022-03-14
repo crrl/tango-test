@@ -7,7 +7,7 @@ const Result = () => {
   const ValuesContext = useContext(Context);
   return (
     <div>
-      <span>Fibonacci Result: </span><span role="result-span" className='result'>{ValuesContext.result}</span>
+      <span>Fibonacci Result: </span><span role="result" className='result'>{ValuesContext.result}</span>
     </div>
   )
 };

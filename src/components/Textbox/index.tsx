@@ -22,7 +22,7 @@ const Textbox = ({ setValue }: Props) => {
   };
 
   return (
-    <input role='value' type='number' value={ValueContext.value} onChange={(ev) => handleValueChange(+ev.target.value)} />
+    <input role='input' type='number' value={ValueContext.value} onChange={(ev) => handleValueChange(+ev.target.value)} />
   )
 };
 

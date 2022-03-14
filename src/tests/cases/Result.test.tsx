@@ -7,6 +7,6 @@ import Result from '../../components/Result';
 
 test('prints the right result in screen', () => {
   customRender(<Result />, { defaultProps });
-  const ResultElement = screen.getByRole('result-span');
+  const ResultElement = screen.getByRole('result');
   expect(ResultElement.textContent).toBe('0');
 });

@@ -29,12 +29,12 @@ describe('test for the title on the screen', () => {
 
 describe('test for the text input on the screen', () => {
   test('should render the text input', () => {
-    const linkElement = screen.getByRole('value');
+    const linkElement = screen.getByRole('input');
     expect(linkElement).toBeInTheDocument();
   });
 
   test('should show value 0 as default.', () => {
-    const linkElement = screen.getByRole('value') as HTMLInputElement;
+    const linkElement = screen.getByRole('input') as HTMLInputElement;
     expect(linkElement.value).toBe('0');
   });
 });
@@ -63,7 +63,7 @@ describe('test for the results on the screen', () => {
     const linkElement = screen.getByRole('button');
     await act(async () => { await fireEvent.click(linkElement) });
     await waitFor(() => {
-      expect(screen.getByRole('result-span').textContent).toBe('1');
+      expect(screen.getByRole('result').textContent).toBe('1');
     });
   });
 });
